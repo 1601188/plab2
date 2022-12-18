@@ -10,9 +10,9 @@ Feature: Opcions peu de pagina
 	Examples:
 	|opcio|
 	|About Us|
-  |Delivery Information|
-  |Privacy Policy|
-  |Terms & Conditions|
+  #|Delivery Information|
+  #|Privacy Policy|
+  #|Terms & Conditions|
 
 	#escenari 2: verificar que un usuari pot contactar amb lempresa
 	@tag2

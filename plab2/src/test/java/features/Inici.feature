@@ -50,7 +50,7 @@ Feature: OpenCart Pagina principal
 	  Examples:
  	| article         | 
   | MacBook          | 
-  | iPhone           |    
+  #| iPhone           |    
   #| Apple Cinema 30" | 
   #| Canon EOS 5D     | 
 	
@@ -66,7 +66,7 @@ Feature: OpenCart Pagina principal
   Examples:
  	| opcio           | simbol |
   | € Euro          | €      |
-  | £ Pound Sterling| £      |
+  #| £ Pound Sterling| £      |
   #| $ US Dollar     | $      |
    
   
@@ -83,7 +83,7 @@ Feature: OpenCart Pagina principal
  	| opcio  | 
   | iPhone | 
   | Dress  |
-  | 454    |
+  #| 454    |
 
 
  

@@ -27,12 +27,14 @@ public class cistellaSteps {
 	}
 	
 	@When ("LUsuari clica a un producte")
-	public void LUsuariClicaAUnProducte() {
+	public void LUsuariClicaAUnProducte() throws InterruptedException {
+		Thread.sleep(1000);
 		step.funcioclick("partialLinkText", "iPhone");	
 	}
 	
 	@And ("LUsuari lafegeix a la cistella")
-	public void LUsuariLafegeixALaCistella() {
+	public void LUsuariLafegeixALaCistella() throws InterruptedException {
+		Thread.sleep(1000);
 		step.funcioclick("xpath", "//*[@id=\"button-cart\"]");			
 	}
 	

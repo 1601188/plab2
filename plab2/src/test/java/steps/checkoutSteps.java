@@ -46,13 +46,14 @@ public class checkoutSteps {
 	
 	//escenari 2: verificar que es pot comprar desde un guest
 	@When ("LUsuari afegeix un producte")
-	public void LUsuariAfegeixUnProducte() {
+	public void LUsuariAfegeixUnProducte() throws InterruptedException {
+		Thread.sleep(1000);
 		step.funcioclick("xpath", "//*[@id=\"content\"]/div[2]/div[1]/div/div[3]/button[1]");	
 	}
 	
 	@And ("LUsuari clica a la cistella per poder fer checkout")
 	public void LUsuariClicaALaCistellaPerPoderFerCheckout() throws InterruptedException{
-		Thread.sleep(100);
+		Thread.sleep(1000);
 		new WebDriverWait(step.driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"cart-total\"]"))).click();
 			
 	}
@@ -60,12 +61,12 @@ public class checkoutSteps {
 
 	@And ("LUsuari clica a lopcio checkout de la cistella")
 	public void LUsuariClicaALopcioCheckoutDeLaCistella() throws InterruptedException  {
-		Thread.sleep(100);
+		Thread.sleep(1000);
 		new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"cart\"]/ul/li[2]/div/p/a[2]/strong"))).click();
 	}
 	@Then ("Se li mostra la pagina per omplir les seves dades")
 	public void SeLiMostraLaPaginaPerOmplirLesSevesDades() throws InterruptedException {
-		Thread.sleep(100);
+		Thread.sleep(1000);
 		String title = new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content\"]/h1"))).getText();
 ;
 		Assert.assertTrue(title.contains("Checkout"));
@@ -73,7 +74,8 @@ public class checkoutSteps {
 	}
 	@And ("LUsuari omple les seves dades")
 	public void LUsuariOmpleLesSevesDades() throws InterruptedException {
-
+		
+		Thread.sleep(3000);
 		step.driver.findElement(By.xpath("//*[@id=\"collapse-checkout-option\"]/div/div/div[1]/div[2]/label/input")).click();
 		new WebDriverWait(step.driver, Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"button-account\"]"))).click();
 
@@ -93,28 +95,33 @@ public class checkoutSteps {
 		step.funcioclick("xpath", "//*[@id=\"input-payment-country\"]");	
 
 		step.funcioclick("xpath", "//*[@id=\"input-payment-country\"]/option[209]");	
-
-		new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"input-payment-zone\"]"))).click();
-		new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"input-payment-zone\"]/option[10]"))).click();
-
 		
+		Thread.sleep(1000);
+		step.funcioclick("xpath", "//*[@id=\"input-payment-zone\"]");
+		Thread.sleep(1000);
+		step.funcioclick("xpath", "//*[@id=\"input-payment-zone\"]/option[10]");
+		//new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"input-payment-zone\"]"))).click();
+		//new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"input-payment-zone\"]/option[10]"))).click();
+
+		Thread.sleep(3000);
 		WebElement ele = step.driver.findElement(By.xpath("//*[@id=\"button-guest\"]"));
 		JavascriptExecutor jse = (JavascriptExecutor)step.driver;
 		jse.executeScript("arguments[0].click()", ele);
 
-		step.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+
+		Thread.sleep(3000);
+		//new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"collapse-payment-method\"]/div/div[2]/div/input[1]"))).click();
 		WebElement ele2 = step.driver.findElement(By.xpath("//*[@id=\"collapse-payment-method\"]/div/div[2]/div/input[1]"));
 		JavascriptExecutor jse2 = (JavascriptExecutor)step.driver;
 		jse2.executeScript("arguments[0].click()", ele2);
 		
+		Thread.sleep(1000);
 		WebElement ele4 = step.driver.findElement(By.xpath("//*[@id=\"button-payment-method\"]"));
 		JavascriptExecutor jse4 = (JavascriptExecutor)step.driver;
 		jse4.executeScript("arguments[0].click()", ele4);
 		
-		step.driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		WebElement ele3 = step.driver.findElement(By.xpath("//*[@id=\"button-confirm\"]"));
 		JavascriptExecutor jse3 = (JavascriptExecutor)step.driver;
 		jse3.executeScript("arguments[0].click()", ele3);
@@ -147,27 +154,25 @@ public class checkoutSteps {
 	
 	@And ("LUsuari confirma les seves dades ja guardades")
 	public void LUsuariConfirmaLesSevesDadesJaGuardades() throws InterruptedException {
-		step.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(1000);
 		step.driver.findElement(By.xpath("//*[@id=\"button-payment-address\"]")).click();
 	
-		step.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(1000);
 		WebElement click1 = step.driver.findElement(By.xpath("//*[@id=\"collapse-payment-method\"]/div/div[2]/div/input[1]"));
 		JavascriptExecutor jse5 = (JavascriptExecutor)step.driver;
 		jse5.executeScript("arguments[0].click()", click1);
 
+		Thread.sleep(1000);
 		WebElement click2 = step.driver.findElement(By.xpath("//*[@id=\"button-payment-method\"]"));
 		JavascriptExecutor jse4 = (JavascriptExecutor)step.driver;
 		jse4.executeScript("arguments[0].click()", click2);
 		
-		step.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+		//step.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Thread.sleep(1000);
 		WebElement ele2 = step.driver.findElement(By.xpath("//*[@id=\"button-confirm\"]"));
 		JavascriptExecutor jse2 = (JavascriptExecutor)step.driver;
 		jse2.executeScript("arguments[0].click()", ele2);
 		
-		step.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-
 	}
 	
 

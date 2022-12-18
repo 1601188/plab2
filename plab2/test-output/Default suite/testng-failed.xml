@@ -6,7 +6,7 @@
       <class name="run.RunIniciTest">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="13"/>
+          <include name="runScenario" invocation-numbers="10"/>
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- run.RunIniciTest -->
