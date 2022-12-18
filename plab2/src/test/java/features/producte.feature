@@ -4,7 +4,7 @@ Feature: Producte
   
   #escenari 1: poder afegir a la cistella un producte desde la pantalla d'aquest
   @tag1
-	Scenario: Seleccio producte pagina principal
+	Scenario: Seleccio i afegir producte desde pagina principal
 	
 	Given LUsuari entra a la pagina web
  	When LUsuari clica sobre el producte que linteresa

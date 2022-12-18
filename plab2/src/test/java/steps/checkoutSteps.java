@@ -51,21 +51,21 @@ public class checkoutSteps {
 	}
 	
 	@And ("LUsuari clica a la cistella per poder fer checkout")
-	public void LUsuariClicaALaCistellaPerPoderFerCheckout(){
-	
+	public void LUsuariClicaALaCistellaPerPoderFerCheckout() throws InterruptedException{
+		Thread.sleep(100);
 		new WebDriverWait(step.driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"cart-total\"]"))).click();
 			
 	}
 	
 
 	@And ("LUsuari clica a lopcio checkout de la cistella")
-	public void LUsuariClicaALopcioCheckoutDeLaCistella()  {
-
+	public void LUsuariClicaALopcioCheckoutDeLaCistella() throws InterruptedException  {
+		Thread.sleep(100);
 		new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"cart\"]/ul/li[2]/div/p/a[2]/strong"))).click();
 	}
 	@Then ("Se li mostra la pagina per omplir les seves dades")
-	public void SeLiMostraLaPaginaPerOmplirLesSevesDades() {
-
+	public void SeLiMostraLaPaginaPerOmplirLesSevesDades() throws InterruptedException {
+		Thread.sleep(100);
 		String title = new WebDriverWait(step.driver, Duration.ofSeconds(40)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content\"]/h1"))).getText();
 ;
 		Assert.assertTrue(title.contains("Checkout"));

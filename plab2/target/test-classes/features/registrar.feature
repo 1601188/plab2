@@ -2,7 +2,7 @@
 
 Feature: Registre Usuari
  
- 	#escenari 4: registre d'un usuari correctament
+ 	#escenari 1: registre d'un usuari correctament
  	
 	@tag1
 	Scenario: Registre dun usuari nou a la pagina
